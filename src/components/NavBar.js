@@ -70,7 +70,7 @@ const NavBar = () => {
         
         <nav className='flex items-center justify-center flex-wrap'>
             <motion.a href="https://twitter.com/dinukpathiraja" target={"_blank"} whileHover={{y:-2}} className='w-8 mx-3' whileTap={{scale:0.9}}><TwitterIcon/></motion.a>
-            <motion.a href="https://github.com/Pathiraja-D" target={"_blank"} whileHover={{y:-2}} className='w-8 mx-3'whileTap={{scale:0.9}}><GithubIcon/></motion.a>
+            <motion.a href="https://github.com/Dinuk-Di" target={"_blank"} whileHover={{y:-2}} className='w-8 mx-3'whileTap={{scale:0.9}}><GithubIcon/></motion.a>
             <motion.a href="https://www.linkedin.com/in/dinukpathiraja" target={"_blank"} whileHover={{y:-2}} className='w-8 ml-3'whileTap={{scale:0.9}}><LinkedInIcon/></motion.a>
             <button
                 onClick={()=>setMode(mode==="light"?"dark":"light")}

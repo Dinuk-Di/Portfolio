@@ -11,16 +11,17 @@ import email from '../../public/images/projects/emailspam.png'
 import travel from '../../public/images/projects/travelcompanion.png'
 import wallet from '../../public/images/projects/wallet.png'
 import container_diagram from '../../public/container_diagram_of_.png'
+import pintanna from '../../public/images/projects/pintanna.png'
 
 const FramerImage = motion(Image);
 
-const FeaturedProjects = ({type,title,summary,img,link,githublink, videoLink}) => {
+const FeaturedProjects = ({type,title,summary,img,link,githublink, videoLink, buttonText="Live Demo"}) => {
     const MediaContent = () => (
         <>
             {videoLink ? (
-                <iframe src={videoLink.replace(/\/view\?.*$/, '/preview')} className='w-full h-full object-cover group-hover:scale-105 transition-transform duration-500' allow="autoplay" allowFullScreen></iframe>
+                <iframe src={videoLink.replace(/\/view\?.*$/, '/preview')} className='w-full h-full object-contain group-hover:scale-105 transition-transform duration-500' allow="autoplay" allowFullScreen></iframe>
             ) : (
-                <FramerImage src={img} alt={title} className='w-full h-full object-cover group-hover:scale-105 transition-transform duration-500' priority sizes='(max-width:768px) 100vw,(max-width:1200px) 50vw,50vw' />
+                <FramerImage src={img} alt={title} className='w-full h-full object-contain group-hover:scale-105 transition-transform duration-500' priority sizes='(max-width:768px) 100vw,(max-width:1200px) 50vw,50vw' />
             )}
         </>
     );
@@ -61,7 +62,7 @@ const FeaturedProjects = ({type,title,summary,img,link,githublink, videoLink}) =
                     )}
                     {link && (
                         <Link href={link} target='_blank'className={`rounded-md bg-dark dark:bg-light text-light dark:text-dark px-4 py-2 font-bold uppercase tracking-wider text-xs hover:bg-primary dark:hover:bg-primaryDark border-2 border-dark dark:border-light transition-colors`}>
-                            Live Demo
+                            {buttonText}
                         </Link>
                     )}
                 </div>
@@ -106,7 +107,9 @@ const projects = () => {
                     title="Pitanna Proposal Project"
                     summary="A comprehensive web proposal demonstrating strong development practices and clean UI. It includes dynamic routing, API integrations, and robust frontend design."
                     link="https://pintannadg.azurewebsites.net/"
-                    type="Web Development" />
+                    type="Web Development" 
+                    img={pintanna}
+                    buttonText="Live System" />
 
                 <FeaturedProjects 
                     title="Email Spam Detector"

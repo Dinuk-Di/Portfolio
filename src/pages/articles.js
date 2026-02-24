@@ -24,7 +24,7 @@ const FeaturedArticle = ({img,title,time,summary,link})=>{
 
             <Link href={link} target='_blank'
             className='w-full inline-block cursor-pointer overflow-hidden rounded-2xl shadow-sm mb-6'>
-                <FramerImage src={img} alt={title} className='w-full h-auto aspect-video object-cover hover:scale-105 transition-transform duration-500' priority sizes='(max-width:768px) 100vw,(max-width:1200px) 50vw,50vw' />
+                <FramerImage src={img} alt={title} className='w-full h-full aspect-video object-contain hover:scale-105 transition-transform duration-500' priority sizes='(max-width:768px) 100vw,(max-width:1200px) 50vw,50vw' />
             </Link>
             
             <div className='w-full flex flex-col flex-grow items-start justify-between'>

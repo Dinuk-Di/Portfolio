@@ -37,7 +37,7 @@ export default function Home() {
             </div>
 
             <p className="mb-10 text-xl font-medium md:text-lg sm:text-base text-dark/75 dark:text-light/75 leading-relaxed max-w-2xl border-l-4 border-dark/20 dark:border-light/20 pl-6">
-              I combine a robust theoretical foundation in structural systems with modern <strong className="text-dark dark:text-light">Machine Learning</strong> and <strong className="text-dark dark:text-light">Full-Stack Architecture</strong> expertise to architect the next generation of scalable software intelligence.
+              I am a specialized professional bridging two powerful domains: <strong className="text-dark dark:text-light">Artificial Intelligence</strong> and <strong className="text-dark dark:text-light">Software Engineering</strong>. I architect the next generation of scalable, intelligent systems by integrating advanced ML models with robust full-stack architectures.
             </p>
 
             {/* Premium Solid Action Buttons */}
@@ -76,22 +76,17 @@ export default function Home() {
             </div>
           </div>  
 
-          {/* RIGHT HALF: Massive Edge-to-Edge Portrait */}
-          <div className="w-1/2 lg:w-full h-screen lg:min-h-[50vh] relative bg-dark/5 dark:bg-light/5 flex items-end justify-center overflow-hidden border-l-8 border-primary dark:border-primaryDark lg:border-l-0 lg:border-b-8">
-            <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent dark:from-dark z-10 lg:hidden"></div>
+          {/* RIGHT HALF: Massive Circular Portrait */}
+          <div className="w-1/2 lg:w-full h-screen lg:min-h-[50vh] relative bg-dark/5 dark:bg-light/5 flex items-center justify-center overflow-hidden border-l-8 border-primary dark:border-primaryDark lg:border-l-0 lg:border-b-8 p-8">
             
-            {/* The actual image engineered to be massive and striking */}
-            <Image
-              src={profilePic}
-              alt="PATHIRAJAGE DON DINUK"
-              className="w-auto h-[90%] lg:h-full lg:w-full object-cover object-top relative z-0 drop-shadow-2xl hover:scale-105 transition-all duration-700 ease-in-out"
-              priority
-              sizes="(max-width:768px) 100vw,(max-width:1200px) 50vw,50vw"
-            />
-            
-            {/* Optional stylistic giant typography in background of photo */}
-            <div className="absolute top-10 right-10 text-[15rem] font-black leading-none text-black/5 dark:text-white/5 select-none pointer-events-none z-0 tracking-tighter">
-              DO<br/>ER.
+            <div className="relative w-[32rem] h-[32rem] xl:w-[28rem] xl:h-[28rem] lg:w-[25rem] lg:h-[25rem] md:w-[20rem] md:h-[20rem] sm:w-[15rem] sm:h-[15rem] rounded-full border-[8px] border-solid border-dark dark:border-light shadow-[12px_12px_0px_0px_rgba(182,62,150,0.5)] dark:shadow-[12px_12px_0px_0px_rgba(88,230,217,0.5)] overflow-hidden flex items-center justify-center z-10 transition-all duration-500 hover:shadow-[16px_16px_0px_0px_rgba(182,62,150,1)] dark:hover:shadow-[16px_16px_0px_0px_rgba(88,230,217,1)]">
+              <Image
+                src={profilePic}
+                alt="PATHIRAJAGE DON DINUK"
+                className="w-full h-full object-cover object-top hover:scale-110 transition-transform duration-700 ease-in-out"
+                priority
+                sizes="(max-width:768px) 100vw,(max-width:1200px) 50vw,50vw"
+              />
             </div>
           </div>
         </div>
