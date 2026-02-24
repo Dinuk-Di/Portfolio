@@ -8,82 +8,130 @@ import { GithubIcon } from '@/components/Icons'
 import { motion } from 'framer-motion'
 import TransitionEffect from '@/components/TransitionEffect'
 import email from '../../public/images/projects/emailspam.png'
-import patient from '../../public/images/projects/patient.png'
 import travel from '../../public/images/projects/travelcompanion.png'
 import wallet from '../../public/images/projects/wallet.png'
+import container_diagram from '../../public/container_diagram_of_.png'
 
 const FramerImage = motion(Image);
 
-const FeaturedProjects = ({type,title,summary,img,link,githublink}) => {
+const FeaturedProjects = ({type,title,summary,img,link,githublink, videoLink}) => {
+    const MediaContent = () => (
+        <>
+            {videoLink ? (
+                <iframe src={videoLink.replace(/\/view\?.*$/, '/preview')} className='w-full h-full object-cover group-hover:scale-105 transition-transform duration-500' allow="autoplay" allowFullScreen></iframe>
+            ) : (
+                <FramerImage src={img} alt={title} className='w-full h-full object-cover group-hover:scale-105 transition-transform duration-500' priority sizes='(max-width:768px) 100vw,(max-width:1200px) 50vw,50vw' />
+            )}
+        </>
+    );
+
     return (
-        <article className='w-full flex items-center justify-between relative rounded-br-2xl
-         rounded-3xl border border-solid border-dark bg-light shadow-2xl p-12 dark:bg-dark dark:border-light
-         lg:flex-col lg:p-8 xs:rounded-2xl xs:rounded-br-3xl xs:p-4'>
-            <Link href={link} target='_blank'
-            className='w-1/2 cursor-pointer overflow-hidden rounded-lg lg:w-full'>
-                <FramerImage src={img} alt={title} className='w-full h-auto' priority sizes='(max-width:768px) 100vw,(max-width:1200px) 50vw,50vw' 
-                />
-            </Link>
-            <div className='absolute top-0 -right-3 -z-10 w-[101%] h-[103%] rounded-[2.5rem]
-             bg-dark rounded-br-3xl dark:bg-light xs:-right-2 sm:h-[102%] xs:w-full xs:rounded-[1.5rem]'/>
-            <div className='w-1/2 flex flex-col items-start justify-between pl-6 lg:w-full lg:pl-0 lg:pt-6 '>
-                <span className='text-primary font-medium text-xl dark:text-primaryDark xs:text-base'>{type}</span>
-                <motion.h2 className='my-2 w-full text-left text-4xl font-bold dark:text-light sm:text-sm' whileHover={{scale:1.05}}
-                transition={{duration:0.2}}>{title}</motion.h2>
-                <p className='my-2 font-medium text-dark dark:text-light sm:text-sm'>
-                    {summary}
-                </p>
-                <div className='mt-2 flex items-center'>
-                    <Link className='w-10' href={githublink} target='_blank'>
-                        <GithubIcon/>
-                    </Link>
-                    <Link href={link} target='_blank'className='ml-4 rounded-lg bg-dark text-light p-2 px-6 text-lg font-semibold
-                    dark:bg-light dark:text-dark sm:px-4 sm:text-base'>
-                        <span>View Project</span>
-                    </Link>
+        <article className='w-full h-full flex flex-col items-center justify-start relative rounded-xl
+         bg-white dark:bg-dark border-4 border-dark dark:border-light p-6 
+         group hover:-translate-y-2 hover:shadow-[12px_12px_0px_0px_rgba(182,62,150,1)] dark:hover:shadow-[12px_12px_0px_0px_rgba(88,230,217,1)] transition-all duration-300'>
+            
+            {/* Strict Aspect Ratio Media Container */}
+            {link ? (
+                <Link href={link} target='_blank' className='w-full aspect-video cursor-pointer overflow-hidden rounded-lg border-2 border-dark dark:border-light relative z-10'>
+                    <MediaContent />
+                </Link>
+            ) : (
+                <div className='w-full aspect-video overflow-hidden rounded-lg border-2 border-dark dark:border-light relative z-10'>
+                    <MediaContent />
+                </div>
+            )}
+            
+            {/* Flex Grow Content Area ensures cards stretch uniformly to matching heights */}
+            <div className='w-full flex flex-col flex-grow items-start justify-between mt-6'>
+                <div className='w-full'>
+                    <span className='text-primary font-bold text-xs tracking-widest uppercase dark:text-primaryDark/80'>{type}</span>
+                    <h2 className='my-2 w-full text-left text-2xl font-black text-dark dark:text-light leading-snug'>{title}</h2>
+                    <p className='my-2 font-medium text-dark/70 dark:text-light/70 text-sm leading-relaxed'>
+                        {/* We use line-clamp-3 here to keep the text block uniform, but allowing dynamic flex to fill space. */}
+                        <span className="line-clamp-3 lg:line-clamp-none">{summary}</span>
+                    </p>
+                </div>
+
+                {/* Fixed bottom action row */}
+                <div className='mt-6 pt-4 border-t-2 border-dark/10 dark:border-light/10 w-full flex items-center justify-between'>
+                    {githublink && (
+                        <Link className='w-8 text-dark/70 hover:text-dark dark:text-light/70 dark:hover:text-light transition-colors transform hover:scale-110' href={githublink} target='_blank'>
+                            <GithubIcon/>
+                        </Link>
+                    )}
+                    {link && (
+                        <Link href={link} target='_blank'className={`rounded-md bg-dark dark:bg-light text-light dark:text-dark px-4 py-2 font-bold uppercase tracking-wider text-xs hover:bg-primary dark:hover:bg-primaryDark border-2 border-dark dark:border-light transition-colors`}>
+                            Live Demo
+                        </Link>
+                    )}
                 </div>
             </div>
         </article>
     )
 }
 
-
 const projects = () => {
   return (
     <>
     <Head>
-        <title>Projects Page</title>
+        <title>Projects | PATHIRAJAGE DON DINUK</title>
         <meta name="description" content="Generated by create next app" />
     </Head>
     <TransitionEffect/>
-    <main className='w-full mb-16 flex flex-col items-center justify-center dark:text-light'>
-        <Layout className='pt-16 px-20 sm:px-0'>
-            <AnimatedText text="Project Showcase" className='mb-16 lg:!text-7xl sm:mb-8 sm:!text-6xl xs:!text-4xl'/>
-            <div className='grid grid-cols-12 gap-24 px-10 gap-y-32 xl:gap-x-16 lg:gap-x-8 md:gap-y-24 sm:gap-x-0'>
-                <div className='col-span-12 '>
-                    <FeaturedProjects 
+    <main className='w-full mb-16 flex flex-col items-center justify-center dark:text-light bg-light dark:bg-dark min-h-screen'>
+        
+        <Layout className='pt-16 sm:pt-8 px-16 xl:px-8 lg:px-4 sm:px-2 z-10 relative'>
+            <AnimatedText text="DIGITAL ARCHITECTURES." className='mb-24 lg:!text-7xl sm:!text-6xl xs:!text-5xl sm:mb-12 !font-black uppercase tracking-tighter text-dark dark:text-light text-center'/>
+            
+            {/* The CSS Grid enforces uniform card columns. sm:grid-cols-2 handles responsiveness perfectly by forcing 2 columns on almost all non-mobile screens. */}
+            <div className='grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-12 gap-y-16 w-full max-w-6xl mx-auto'>
+                
+                <FeaturedProjects 
+                    title="Multimodal Desktop Assistant"
+                    summary="A desktop assistant capable of facial emotion recognition and reacting accordingly. Uses multimodal data inputs to enhance human-computer interaction seamlessly."
+                    link=""
+                    type="Artificial Intelligence"
+                    githublink="https://github.com/Dinuk-Di/Facial_Emotion_Recongnition.git"
+                    videoLink="https://drive.google.com/file/d/1nLeJwnxrRzfzYDWBnIc6c5Px94mMX0xA/view?usp=drive_link" />
+                
+                <FeaturedProjects 
+                    title="Autonomous Disaster Management System"
+                    summary="An intelligent system that orchestrates drone swarms for mapping and disaster management. Uses autonomous sync protocols to help responders coordinate quickly."
+                    link=""
+                    type="Systems Architecture"
+                    githublink="https://github.com/Dinuk-Di/SurvivorSync-DataMavericks.git"
+                    videoLink="https://drive.google.com/file/d/13lNwIX3kVy0Lt7qCiEt9SJOs8_eFDV1D/view?usp=drive_link" />
+
+                <FeaturedProjects 
+                    title="Pitanna Proposal Project"
+                    summary="A comprehensive web proposal demonstrating strong development practices and clean UI. It includes dynamic routing, API integrations, and robust frontend design."
+                    link="https://pintannadg.azurewebsites.net/"
+                    type="Web Development" />
+
+                <FeaturedProjects 
                     title="Email Spam Detector"
-                    summary="Compariosn between two machine learning models(Logistic Regression & Naive Bayes)
-                    that which model performs well in identifying spam email for a trained datast from kaggle. Python Flask is used to
-                    create the backend and HTML CSS for frontend."
+                    summary="Comparison between two machine learning models (Logistic Regression & Naive Bayes) to identify spam email on a Kaggle dataset. Python Flask used for backend."
                     link="https://email-spam-detector-jyr7.onrender.com/"
                     type="Machine Learning"
-                    githublink="https://github.com/Pathiraja-D/Spam-Email-Detection-ML_Editted_By_D"
-                    img={email}/>
-                </div>
-                
+                    githublink="https://github.com/Selani00/Spam-Email-Detection-ML.git"
+                    videoLink="https://drive.google.com/file/d/18KQZqe4ujorrsHC1V4LO15zKUBrdcNMS/view?usp=sharing" />
 
-                <div className='col-span-12'>
+                <FeaturedProjects 
+                    title="Book Fair Zone Management"
+                    summary="Microservices-based architecture for managing book fair zones. Features distinct containers for inventory, users, and transactions handling."
+                    link=""
+                    type="Microservices"
+                    githublink="https://github.com/DSNDTC/BookFairZone.git"
+                    img={container_diagram} />
+
                 <FeaturedProjects 
                     title="Travel Companion Mobile App"
-                    summary="Flutter mobile application development. Users can keep track of their memories like images, videos and locations. Google map facility also provided.
-                    Weather Forecast feature and Reminder for an upcoming journey feature."
+                    summary="Flutter mobile application development. Users can keep track of their memories like images, videos and locations. Google map facility also provided."
                     link="https://www.linkedin.com/posts/dinukpathiraja_flutter-firebase-mobileapp-activity-7154594945641672704--54N?utm_source=share&utm_medium=member_desktop"
                     type="Android Application"
                     githublink="https://github.com/Pathiraja-D/Travel_Companion"
                     img={travel}/>
-                </div>
-                <div className='col-span-12'>
+
                 <FeaturedProjects 
                     title="Digital Wallet Web Application"
                     summary="CRUD operations for users who are using the digital wallet web app. ASP.Net and React is used. Database is SQL Server"
@@ -91,16 +139,6 @@ const projects = () => {
                     type="Web Application"
                     githublink="https://github.com/Pathiraja-D/Digital_Wallet"
                     img={wallet}/>
-                </div>
-                <div className='col-span-12'>
-                <FeaturedProjects 
-                    title="Patient Registration System"
-                    summary="Desktop Application using WPF C#. Patient handling for a hospital. Can issue the bill for the patient and keep all the past records of the patients."
-                    link="https://www.linkedin.com/posts/dinukpathiraja_wpf-mvvm-sqlite-activity-7089510404720119808-90cJ?utm_source=share&utm_medium=member_desktop"
-                    type="Desktop Application"
-                    githublink="https://github.com/Pathiraja-D/Group-Project-3894-3901"
-                    img={patient}/>
-                </div>
             </div>
         </Layout>
     </main>
