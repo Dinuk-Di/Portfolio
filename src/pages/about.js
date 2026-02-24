@@ -44,14 +44,14 @@ const about = () => {
     </Head>
     <TransitionEffect/>
     <main className='flex w-full flex-col items-center justify-center dark:text-light bg-light dark:bg-dark'>
-        <Layout className='pt-16 px-16 sm:px-8'>
-            <AnimatedText text="ENGINEER THE FUTURE." className='mb-24 lg:!text-7xl sm:!text-6xl xs:!text-5xl sm:mb-12 !font-black uppercase tracking-tighter text-dark dark:text-light text-center'/>
+        <Layout className='pt-16 px-16 sm:px-4'>
+            <AnimatedText text="ENGINEER THE FUTURE." className='mb-24 lg:!text-7xl sm:!text-6xl xs:!text-4xl sm:mb-12 !font-black uppercase tracking-tighter text-dark dark:text-light text-center'/>
             
             {/* Bold Asymmetrical Layout */}
-            <div className='grid w-full grid-cols-8 gap-y-16 gap-x-12 sm:gap-8 bg-white dark:bg-dark border-4 border-dark dark:border-light p-12 sm:p-6 shadow-[16px_16px_0px_0px_rgba(182,62,150,1)] dark:shadow-[16px_16px_0px_0px_rgba(88,230,217,1)] relative'>
+            <div className='grid w-full grid-cols-8 gap-y-16 gap-x-12 sm:gap-x-0 sm:gap-y-12 bg-white dark:bg-dark border-4 border-dark dark:border-light p-12 sm:p-4 shadow-[16px_16px_0px_0px_rgba(182,62,150,1)] dark:shadow-[8px_8px_0px_0px_rgba(88,230,217,1)] relative'>
                 
                 {/* Biography Section */}
-                <div className='col-span-4 flex flex-col items-start justify-start xl:col-span-8 md:order-2 space-y-8 pr-8 xl:pr-0'>
+                <div className='col-span-4 flex flex-col items-start justify-start xl:col-span-8 md:order-2 space-y-8 pr-8 xl:pr-0 sm:w-full overflow-hidden'>
                     <div className="w-16 h-4 bg-primary dark:bg-primaryDark mb-2"></div>
                     <h2 className='text-4xl font-black uppercase text-dark dark:text-light tracking-widest'>Professional Summary</h2>
                     <div className='font-semibold text-dark/80 dark:text-light/80 leading-loose text-lg text-justify border-l-4 border-primary dark:border-primaryDark pl-6 py-2'>
@@ -82,7 +82,7 @@ const about = () => {
                 </div>
 
                  {/* Profile Image - Bold Graphic Container */}
-                 <div className='col-span-4 relative h-max rounded-none border-8 border-solid border-dark dark:border-light bg-light dark:bg-dark xl:col-span-8 md:order-1 sm:border-4 p-4 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] dark:shadow-[12px_12px_0px_0px_rgba(255,255,255,1)] ml-8 xl:ml-0'>
+                 <div className='col-span-4 relative h-max rounded-none border-8 border-solid border-dark dark:border-light bg-light dark:bg-dark xl:col-span-8 md:order-1 sm:border-4 p-4 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] ml-8 xl:ml-0 overflow-hidden w-full'>
                         <Image src={profilePic} alt="Pathirajage Don Dinuk Profile Picture" className='w-full h-auto object-cover transition-all duration-500' priority sizes='(max-width:768px) 100vw,(max-width:1200px) 50vw,50vw'/>
                  </div>
             </div>

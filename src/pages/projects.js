@@ -82,10 +82,10 @@ const projects = () => {
     <main className='w-full mb-16 flex flex-col items-center justify-center dark:text-light bg-light dark:bg-dark min-h-screen'>
         
         <Layout className='pt-16 sm:pt-8 px-16 xl:px-8 lg:px-4 sm:px-2 z-10 relative'>
-            <AnimatedText text="DIGITAL ARCHITECTURES." className='mb-24 lg:!text-7xl sm:!text-6xl xs:!text-5xl sm:mb-12 !font-black uppercase tracking-tighter text-dark dark:text-light text-center'/>
+            <AnimatedText text="DIGITAL ARCHITECTURES." className='mb-24 lg:!text-7xl sm:!text-6xl xs:!text-4xl sm:mb-12 !font-black uppercase tracking-tighter text-dark dark:text-light text-center'/>
             
-            {/* The CSS Grid enforces uniform card columns. sm:grid-cols-2 handles responsiveness perfectly by forcing 2 columns on almost all non-mobile screens. */}
-            <div className='grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-12 gap-y-16 w-full max-w-6xl mx-auto'>
+            {/* The CSS Grid enforces uniform card columns. Default Desktop is 2, drops to 1 on small tablets & phones. */}
+            <div className='grid grid-cols-2 sm:grid-cols-1 gap-8 lg:gap-12 gap-y-16 w-full max-w-6xl mx-auto'>
                 
                 <FeaturedProjects 
                     title="Multimodal Desktop Assistant"

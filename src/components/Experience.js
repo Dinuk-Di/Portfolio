@@ -42,9 +42,9 @@ const Experience = () => {
 
     return (
         <div className='my-48'>
-            <AnimatedText text="PROFESSIONAL EXPERIENCE." className='font-black text-8xl w-full text-left md:text-6xl mb-24 uppercase tracking-tighter' />
+            <AnimatedText text="PROFESSIONAL EXPERIENCE." className='font-black text-8xl w-full text-left md:text-6xl sm:!text-5xl xs:!text-4xl mb-24 md:mb-16 uppercase tracking-tighter' />
             
-            <div ref={ref} className='w-full mx-auto relative lg:w-[90%] md:w-full ml-[10%] lg:ml-[5%]'>
+            <div ref={ref} className='w-[75%] mx-auto relative lg:w-[90%] md:w-full'>
                 <motion.div
                     style={{ scaleY: scrollYProgress }}
                     className='absolute left-9 top-1 w-[4px] h-full bg-dark origin-top dark:bg-light md:w-[4px] md:left-[30px] xs:left-[20px]' 
