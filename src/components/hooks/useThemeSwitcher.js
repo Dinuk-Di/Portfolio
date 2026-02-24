@@ -21,14 +21,9 @@ const useThemeSwitcher = () => {
                 }
             }
             else{
-                let check = mediaQuery.matches ? "dark" : "light";
+                let check = "dark";
                 setMode(check);
-                if(check === "dark"){
-                    document.documentElement.classList.add("dark");
-                }
-                else{
-                    document.documentElement.classList.remove("dark");
-                }
+                document.documentElement.classList.add("dark");
             }
         }
 
